@@ -1,5 +1,9 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Agent Guidelines
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+## Language
+
+- All code, comments, and documentation must be written in **English**.
+
+## Ignore Paths
+
+- Exclude the `temp/` directory from all operations (reading, writing, analysis, search).
