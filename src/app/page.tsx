@@ -66,14 +66,22 @@ export default async function Home() {
           />
         </div>
 
-        {!user && (
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          {!user && (
+            <Link
+              href="/signin"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-zinc-900 px-8 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            >
+              Get started
+            </Link>
+          )}
           <Link
-            href="/signin"
-            className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-zinc-900 px-8 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            href="/device"
+            className="inline-flex h-12 items-center justify-center rounded-full border border-zinc-300 px-8 text-sm font-medium text-zinc-800 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
           >
-            Get started
+            Pair a device
           </Link>
-        )}
+        </div>
       </main>
 
       <footer className="mx-auto w-full max-w-5xl px-6 py-8 text-center text-xs text-zinc-500 dark:text-zinc-600">

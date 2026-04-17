@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  serverExternalPackages: ["@a2x/sdk"],
   turbopack: {
     root: path.resolve(__dirname),
   },
