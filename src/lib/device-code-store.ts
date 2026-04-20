@@ -22,8 +22,16 @@ export interface DeviceCodeRecord {
   accessTokenExpiresAt?: number;
 }
 
-const DEFAULT_EXPIRES_IN = 600;
+const FALLBACK_EXPIRES_IN = 60;
 const DEFAULT_INTERVAL = 5;
+
+function resolveDefaultExpiresIn(): number {
+  const raw = process.env.DEVICE_CODE_EXPIRES_IN;
+  if (!raw) return FALLBACK_EXPIRES_IN;
+  const parsed = Number(raw);
+  if (!Number.isFinite(parsed) || parsed <= 0) return FALLBACK_EXPIRES_IN;
+  return Math.floor(parsed);
+}
 
 const USER_CODE_ALPHABET = "BCDFGHJKLMNPQRSTVWXYZ";
 
@@ -87,7 +95,7 @@ export function createDeviceCode(
     scopes: input.scopes,
     status: "pending",
     createdAt: now,
-    expiresAt: now + (input.expiresIn ?? DEFAULT_EXPIRES_IN) * 1000,
+    expiresAt: now + (input.expiresIn ?? resolveDefaultExpiresIn()) * 1000,
     interval: input.interval ?? DEFAULT_INTERVAL,
   };
 
