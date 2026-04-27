@@ -94,7 +94,7 @@ function createSetup(): Cache {
   const a2xAgent = new A2XAgent({
     taskStore,
     executor,
-    protocolVersion: "1.0",
+    protocolVersion: "0.3",
   })
     .setName("a2x-sample")
     .setDescription(
